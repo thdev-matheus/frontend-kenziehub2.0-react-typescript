@@ -1,7 +1,7 @@
 {
   "name": "kenzie-hub-v2.0",
   "author": "Theus",
-  "repository": "",
+  "repository": "https://github.com/thdev-matheus/frontend-kenziehub2.0-react-typescript",
   "private": true,
   "version": "0.0.0",
   "type": "module",
