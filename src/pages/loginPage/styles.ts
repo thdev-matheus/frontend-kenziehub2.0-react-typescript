@@ -16,10 +16,6 @@ export const Container = styled.div`
     align-items: center;
 
     background-color: ${(props) => props.theme.gray4};
-
-    & > h1 {
-      color: ${(props) => props.theme.gray0};
-    }
   }
 
   @media (min-width: 1440px) {

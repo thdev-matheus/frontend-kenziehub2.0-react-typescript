@@ -1,9 +1,10 @@
 import * as S from "./styles";
+import * as C from "../../components";
 
 export const LoginPage = () => {
   return (
     <S.Container>
-      <h1>Página de Login</h1>
+      <C.Logo />
     </S.Container>
   );
 };
