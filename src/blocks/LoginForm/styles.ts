@@ -15,6 +15,9 @@ export const Container = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 2rem;
+
+    padding: 1.5rem;
 
     border-radius: 0.5rem;
 
@@ -24,6 +27,10 @@ export const Container = styled.div`
       font-size: 16pt;
 
       color: ${(props) => props.theme.gray0};
+    }
+
+    & > form {
+      width: 100%;
     }
   }
 
