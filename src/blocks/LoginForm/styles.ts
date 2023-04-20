@@ -8,16 +8,23 @@ export const Container = styled.div`
   }
 
   @media (min-width: 1024px) {
-    width: 100%;
-    height: 100vh;
+    width: 23rem;
+    height: 31.3rem;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    justify-content: center;
 
-    background-color: ${(props) => props.theme.gray4};
+    border-radius: 0.5rem;
+
+    background-color: ${(props) => props.theme.gray3};
+
+    & > h1 {
+      font-size: 16pt;
+
+      color: ${(props) => props.theme.gray0};
+    }
   }
 
   @media (min-width: 1440px) {
@@ -26,5 +33,3 @@ export const Container = styled.div`
   @media (min-width: 1900px) {
   }
 `;
-
-export const Box = styled.div``;
