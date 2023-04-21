@@ -2,8 +2,7 @@ import * as S from "./styles";
 import * as C from "../../components";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiLock, FiUnlock } from "react-icons/fi";
-import { useRef, useState } from "react";
-import { IconType } from "react-icons";
+import { useState } from "react";
 
 export const LoginForm = () => {
   const [icon, setIcon] = useState<string>("lock");
