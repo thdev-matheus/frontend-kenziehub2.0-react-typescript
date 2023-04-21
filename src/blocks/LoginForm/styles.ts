@@ -31,6 +31,10 @@ export const Container = styled.div`
 
     & > form {
       width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
     }
   }
 
