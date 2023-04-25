@@ -29,6 +29,7 @@ export const LoginForm = () => {
           label="Password"
           /* error="estado de erro" */
         />
+        <C.Select />
       </form>
     </S.Container>
   );
