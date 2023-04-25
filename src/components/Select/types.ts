@@ -12,6 +12,7 @@ export interface ISelectProps {
   margin?: string;
 
   borderRadius?: string;
+  borderColor?: string;
 
   fontSize?: string;
 
@@ -29,6 +30,7 @@ export interface IContainerProps {
   margin?: string;
 
   borderRadius?: string;
+  borderColor?: string;
 
   fontSize?: string;
 

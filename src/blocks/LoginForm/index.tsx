@@ -5,6 +5,9 @@ import { FiLock, FiUnlock } from "react-icons/fi";
 import { useState } from "react";
 
 export const LoginForm = () => {
+  const [activeOpt, setActiveOpt] = useState<string>("opção1");
+  const options = ["opção1", "opção2", "opção3", "opção4"];
+
   const [icon, setIcon] = useState<string>("lock");
 
   const changeIcon = () => setIcon(icon === "lock" ? "unlock" : "lock");
@@ -29,7 +32,12 @@ export const LoginForm = () => {
           label="Password"
           /* error="estado de erro" */
         />
-        <C.Select />
+        <C.Select
+          label="Módulo do Curso"
+          activeOpt={activeOpt}
+          options={options}
+          setAction={setActiveOpt}
+        />
       </form>
     </S.Container>
   );
