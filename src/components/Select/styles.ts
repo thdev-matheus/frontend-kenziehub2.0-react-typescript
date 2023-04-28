@@ -26,7 +26,6 @@ export const Dropdown = styled.div<T.IContainerProps>`
 
   display: flex;
   flex-direction: column;
-  // mudado de center para flex-start para corrigir a posição do menu
   justify-content: flex-start;
   align-items: center;
 

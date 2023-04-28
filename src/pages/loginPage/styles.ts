@@ -16,11 +16,11 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
-    // colocado um overflow
+
     overflow: hidden auto;
 
     background-color: ${(props) => props.theme.gray4};
-    // removido o scroll
+
     ::-webkit-scrollbar {
       display: none;
     }
