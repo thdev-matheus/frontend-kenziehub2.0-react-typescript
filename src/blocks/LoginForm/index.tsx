@@ -32,13 +32,13 @@ export const LoginForm = () => {
           label="Password"
           /* error="estado de erro" */
         />
-        <C.Select
-          label="Módulo do Curso"
-          activeOpt={activeOpt}
-          options={options}
-          setAction={setActiveOpt}
-        />
+        <C.Button label="Entrar" />
       </form>
+
+      <div>
+        <h3>Ainda não possui uma conta?</h3>
+        <button type="button">Cadastre-se</button>
+      </div>
     </S.Container>
   );
 };
