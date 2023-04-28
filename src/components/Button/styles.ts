@@ -12,6 +12,8 @@ export const Container = styled.button<T.ISButtonProps>`
   gap: 0.5rem;
 
   border-radius: ${(props) => props.borderRadius || "4px"};
+  border: none;
+  outline: none;
 
   font-size: ${(props) => props.fontSize || "14pt"};
   font-weight: bold;
@@ -34,5 +36,10 @@ export const Container = styled.button<T.ISButtonProps>`
     transform: scale(0.9);
 
     transition: 0s;
+  }
+
+  & > svg {
+    width: ${(props) => props.iconSize || "20px"};
+    height: ${(props) => props.iconSize || "20px"};
   }
 `;

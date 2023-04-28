@@ -3,12 +3,12 @@ import * as C from "../../components";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiLock, FiUnlock } from "react-icons/fi";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
-  const [activeOpt, setActiveOpt] = useState<string>("opção1");
-  const options = ["opção1", "opção2", "opção3", "opção4"];
-
   const [icon, setIcon] = useState<string>("lock");
+
+  const navigate = useNavigate();
 
   const changeIcon = () => setIcon(icon === "lock" ? "unlock" : "lock");
 
@@ -32,13 +32,20 @@ export const LoginForm = () => {
           label="Password"
           /* error="estado de erro" */
         />
-        <C.Button label="Entrar" />
+        <C.Button label="Entrar" height="2.5rem" type="submit" />
       </form>
 
-      <div>
+      <S.BoxRegister>
         <h3>Ainda não possui uma conta?</h3>
-        <button type="button">Cadastre-se</button>
-      </div>
+        <C.Button
+          label="Cadastre-se"
+          height="2.5rem"
+          type="button"
+          bgColor="#868e96"
+          hBgColor="#343B41"
+          onAction={() => navigate("/register")}
+        />
+      </S.BoxRegister>
     </S.Container>
   );
 };
