@@ -3,7 +3,11 @@ import * as C from "../../components";
 import { HiOutlineMail } from "react-icons/hi";
 import { FiLock, FiUnlock } from "react-icons/fi";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useRevalidator } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { IUserLogin } from "../../types/user";
+import { userLoginSchema } from "../../schemas/user";
 
 export const LoginForm = () => {
   const [icon, setIcon] = useState<string>("lock");
@@ -12,17 +16,31 @@ export const LoginForm = () => {
 
   const changeIcon = () => setIcon(icon === "lock" ? "unlock" : "lock");
 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IUserLogin>({
+    resolver: zodResolver(userLoginSchema),
+    reValidateMode: "onSubmit",
+  });
+
+  const handleLogin = async (data: IUserLogin) => {
+    console.log(data);
+  };
+
   return (
     <S.Container>
       <h1>Login</h1>
-      <form>
+      <form onSubmit={handleSubmit(handleLogin)}>
         <C.Input
           icon={HiOutlineMail}
           borderRadius="4px"
           iconAction={() => console.log("ação do ícone email")}
-          type="email"
+          type="text"
           label="E-mail"
-          /* error="estado de erro" */
+          {...register("email")}
+          error={errors.email?.message}
         />
         <C.Input
           icon={icon === "lock" ? FiLock : FiUnlock}
@@ -30,7 +48,8 @@ export const LoginForm = () => {
           iconAction={() => changeIcon()}
           type="password"
           label="Password"
-          /* error="estado de erro" */
+          {...register("password")}
+          error={errors.password?.message}
         />
         <C.Button label="Entrar" height="2.5rem" type="submit" />
       </form>

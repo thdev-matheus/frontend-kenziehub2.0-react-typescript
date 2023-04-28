@@ -4,10 +4,29 @@ import { HiOutlineMail } from "react-icons/hi";
 import { FiLock, FiUnlock, FiUser, FiPhone } from "react-icons/fi";
 import { RiFileUserLine } from "react-icons/ri";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { IUserRegister } from "../../types/user";
+import { userRegisterSchema } from "../../schemas/user";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export const RegisterForm = () => {
   const [activeOpt, setActiveOpt] = useState<string>("opção1");
   const options = ["opção1", "opção2", "opção3", "opção4"];
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    // reset,
+  } = useForm<IUserRegister>({
+    resolver: zodResolver(userRegisterSchema),
+    reValidateMode: "onSubmit",
+  });
+
+  const handleRegister = async (data: IUserRegister) => {
+    console.log(data);
+    // reset();
+  };
 
   return (
     <S.Container>
@@ -15,41 +34,46 @@ export const RegisterForm = () => {
         <h1>Crie sua conta</h1>
         <span>Rápido e grátis, vamos nessa</span>
       </div>
-      <form>
+      <form onSubmit={handleSubmit(handleRegister)}>
         <C.Input
           icon={FiUser}
           borderRadius="4px"
           type="text"
           label="Nome"
-          /* error="estado de erro" */
+          {...register("name")}
+          error={errors.name?.message}
         />
         <C.Input
           icon={HiOutlineMail}
           borderRadius="4px"
           type="email"
           label="E-mail"
-          /* error="estado de erro" */
+          {...register("email")}
+          error={errors.email?.message}
         />
         <C.Input
           icon={FiLock}
           borderRadius="4px"
           type="password"
           label="Senha"
-          /* error="estado de erro" */
+          {...register("password")}
+          error={errors.password?.message}
         />
         <C.Input
           icon={FiLock}
           borderRadius="4px"
           type="password"
           label="Confirmar Senha"
-          /* error="estado de erro" */
+          {...register("confirmPassword")}
+          error={errors.confirmPassword?.message}
         />
         <C.Input
           icon={RiFileUserLine}
           borderRadius="4px"
           type="text"
           label="Bio"
-          /* error="estado de erro" */
+          {...register("bio")}
+          error={errors.bio?.message}
         />
         <C.Input
           icon={FiPhone}
@@ -58,7 +82,8 @@ export const RegisterForm = () => {
           label="Contato"
           isMask
           mask="(99) 9 9999-9999"
-          /* error="estado de erro" */
+          {...register("contact")}
+          error={errors.contact?.message}
         />
         <C.Select
           activeOpt={activeOpt}
